@@ -1,0 +1,9 @@
+{% if months %}
+    <ul>
+    {% for month in months %}
+        <li><a href="/337/{{ month }}/">{{ month }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No reports are available.</p>
+{% endif %}

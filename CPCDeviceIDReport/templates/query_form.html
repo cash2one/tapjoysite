@@ -1,0 +1,32 @@
+<html>
+<head>
+    {% load staticfiles %}
+    <title>Get mac_address report for Campaing</title> 
+    <link rel="stylesheet" href="{% static "themes/base/jquery.ui.all.css" %}">
+    <script src="{% static "jquery-2.0.0.min.js" %}" ></script>
+    <script src="{% static "ui/jquery.ui.core.js" %}"></script>
+    <script src="{% static "ui/jquery.ui.widget.js" %}"></script>
+    <script src="{% static "ui/jquery.ui.datepicker.js" %}"></script>
+    <script>
+    $(function() {
+        $( "#id_startDate" ).datepicker({ dateFormat: 'yy-mm-dd' });
+        $( "#id_endDate" ).datepicker({ dateFormat: 'yy-mm-dd' });
+    });
+    </script>
+</head>
+<body>
+    <h1>Get mac_address report for CPC campaign</h1>
+
+    {% if form.errors %}
+         <p style="color: red;">
+             Please correct the error{{ form.errors|pluralize }} below. 
+         </p>
+    {% endif %}
+    <form action="" method="get"> 
+        <table>
+            {{ form.as_table }} 
+        </table>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

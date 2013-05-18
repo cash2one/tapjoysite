@@ -1,0 +1,38 @@
+<html>
+<head>
+    {% load staticfiles %}
+    <title>Get mac_address report for Campaing</title> 
+    <script src="{% static "jquery-2.0.0.min.js" %}" ></script>
+    <script>
+    var downloadURL = function downloadURL(url) {
+        var hiddenIFrameID = 'hiddenDownloader',
+            iframe = document.getElementById(hiddenIFrameID);
+        $("#loading").show();
+        iframe.src = url;
+        iframe.onload = function() {
+            $("#loading").hide();
+        };
+    };
+    $(function() {
+        $(document).ajaxStart(function(){
+             $("#loading").show();
+         }).ajaxStop(function(){
+             $("#loading").hide();
+         });
+        downloadURL("{{ queryID }}");
+        /*$.get("{{ queryID }}");*/
+        
+    });
+    </script>
+</head>
+<body>
+    <h1>Get mac_address report for CPC campaign: {{ adID }}</h1>
+    <h2> Start Date: {{ startDate }} </h2>
+    <h2> End Date: {{ endDate }} </h2>
+    <div id="loading" style=" display:none">
+            <img src="{% static "loading.gif" %}" alt="Loading" />
+            <iframe id="hiddenDownloader" style=" display:none"></iframe>
+    </div>  
+
+</body>
+</html>

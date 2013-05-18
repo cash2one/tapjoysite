@@ -1,0 +1,34 @@
+<uwsgi>
+
+<socket>0.0.0.0:9091</socket>
+<env>DJANGO_SETTINGS_MODULE=hao123.settings_production</env> 
+
+<home>/home/datateam/django_tapjoysite</home> 
+
+<listen>127</listen>
+
+<!-- 开启32个线程 -->
+<processes>10</processes>
+
+<max-requests>2048000</max-requests>
+
+<buffer-size>8192</buffer-size>
+
+<!-- 你的配置文件 -->
+<module>django_wsgi</module>
+
+<profiler>true</profiler>
+
+<enable-threads>true</enable-threads>
+
+<!-- 限制内存空间256M -->
+<limit-as>128000</limit-as>
+
+<!-- 使用async模式来运行，这里要注意一下，如果你的app的是no-async-friendly 那就不要用这个模式 -->
+<!--async>10</async-->
+
+<disable-logging/>
+
+<daemonize>/home/datateam/hao123/hao123/uwsgi.log</daemonize>
+
+</uwsgi>
