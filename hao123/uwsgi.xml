@@ -2,8 +2,10 @@
 
 <socket>0.0.0.0:9091</socket>
 <env>DJANGO_SETTINGS_MODULE=hao123.settings_production</env> 
+<pidfile>/var/run/uwsgi-tapjoysite.pid</pidfile>
 
 <home>/home/datateam/django_tapjoysite</home> 
+<master>true</master>
 
 <listen>127</listen>
 
