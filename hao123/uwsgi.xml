@@ -29,6 +29,6 @@
 
 <disable-logging/>
 
-<daemonize>/home/datateam/hao123/hao123/uwsgi.log</daemonize>
+<daemonize>uwsgi.log</daemonize>
 
 </uwsgi>
