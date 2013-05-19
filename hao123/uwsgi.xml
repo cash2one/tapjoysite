@@ -1,10 +1,9 @@
 <uwsgi>
 
 <socket>0.0.0.0:9091</socket>
-<env>DJANGO_SETTINGS_MODULE=hao123.settings_production</env> 
 <pidfile>/var/run/uwsgi-tapjoysite.pid</pidfile>
-
-<home>/home/datateam/django_tapjoysite</home> 
+<chdir>/home/datateam/tapjoysite</chdir>
+<home>/home/datateam/django_tapjoysite</home>
 <master>true</master>
 
 <listen>127</listen>
@@ -17,7 +16,7 @@
 <buffer-size>8192</buffer-size>
 
 <!-- 你的配置文件 -->
-<module>django_wsgi</module>
+<module>hao123.django_wsgi</module>
 
 <profiler>true</profiler>
 
