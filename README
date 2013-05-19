@@ -1,0 +1,26 @@
+Install the web
+
+1. git clone git@github.com:songpeng1997/tapjoysite.git
+2. chown -R datateam.datateam tapjoysite
+3. python manage syncdb to set up cookie database
+4. cd hao123; ./restart.sh
+
+
+nginx conf for the app
+
+    server {
+            listen   <your port number>;
+	    server_name datateam_production;
+	    access_log <django root>/access.log;
+            location / {
+                root   <django root>;
+                uwsgi_pass 127.0.0.1:9091;
+                include        uwsgi_params;
+             }
+             location /static {         
+                root <django root>; 
+         	expires 24h;
+	   	access_log   off;
+	     }
+    }
+
