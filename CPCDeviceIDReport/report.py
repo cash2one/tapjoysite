@@ -36,10 +36,12 @@ def generateReport(adID, startDate, endDate, queryID = 'tmp'):
 
         wb = xlwt.Workbook()
         print str(datetime.datetime.now()) + '''  Pull data for offer "%s" ... ''' % adID 
-        sql = ''' select distinct to_char(a.time) as clicktime, b.mac_address from (select udid, time from analytics.actions where offer_id = '%s' 
+        sql = ''' select distinct to_char(a.time + interval '8:00') as clicktime, b.mac_address  
+                  from (select udid, time from analytics.actions where offer_id = '%s' 
                   and day between '%s' and '%s') a 
                   join analytics.connects_bi b on a.udid = b.udid
-                  where b.mac_address != 'NULL' and b.day between '%s' and '%s'
+                  where b.mac_address != 'NULL' and b.day between date('%s') - interval '15' and '%s'
+                  order by 1 asc
                  ''' % (adID, startDate, endDate, startDate, endDate)
         cursor.execute(sql)
         AddSheet(wb, 'mac_addr', cursor, 0, 0)
