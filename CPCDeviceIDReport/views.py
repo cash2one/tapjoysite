@@ -40,7 +40,7 @@ def query(request, queryID):
 
     generateReport(request.session['adID'], request.session['startDate'], request.session['endDate'], queryID)
 
-    BASEDIR = os.path.join(os.path.realpath(sys.path[0]), 'CPCDeviceIDReport', 'tmp_report')
+    BASEDIR = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'tmp_report')
     filename = os.path.join(BASEDIR, queryID) + '.xls'
     download_name = request.session['adID'] + '.xls' 
     wrapper = FileWrapper(open(filename))

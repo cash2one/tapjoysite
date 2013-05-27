@@ -27,7 +27,7 @@ def generateReport(adID, startDate, endDate, queryID = 'tmp'):
     connection = get_connection(dsn = 'VerticaDSN', unicode_results='True')
     cursor = connection.cursor()
     try:
-        BASEDIR = os.path.join(os.path.realpath(sys.path[0]), 'CPCDeviceIDReport', 'tmp_report')
+        BASEDIR = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'tmp_report')
         folder =  BASEDIR
         filename = os.path.join(BASEDIR, queryID) + '.xls'
 
@@ -38,7 +38,7 @@ def generateReport(adID, startDate, endDate, queryID = 'tmp'):
         print str(datetime.datetime.now()) + '''  Pull data for offer "%s" ... ''' % adID 
         sql = ''' select distinct to_char(a.time + interval '8:00') as clicktime, b.mac_address  
                   from (select udid, time from analytics.actions where offer_id = '%s' 
-                  and day between '%s' and '%s') a 
+                  and time between date('%s') - interval '8:00' and date('%s') + interval '1') a 
                   join analytics.connects_bi b on a.udid = b.udid
                   where b.mac_address != 'NULL' and b.day between date('%s') - interval '15' and '%s'
                   order by 1 asc
@@ -46,12 +46,13 @@ def generateReport(adID, startDate, endDate, queryID = 'tmp'):
         cursor.execute(sql)
         AddSheet(wb, 'mac_addr', cursor, 0, 0)
         wb.save(filename)
-    except:
+    except Exception as ex:
         print str(datetime.datetime.now()) + '''  Failed to pull data for offer "%s" ... ''' % adID 
+        print Exception, ":", ex
     finally:
         connection.close()
 
 
 if __name__ == "__main__":
-    generateReport('03da3e55-bf5d-4057-9278-36915429a2ff', '2013-5-1', '2013-5-3', 'tmp')
+    generateReport('7057a1a7-ebce-4369-b729-68e1d212d20e', '2013-5-24', '2013-5-24', 'tmp')
 
