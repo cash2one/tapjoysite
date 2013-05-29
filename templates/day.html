@@ -1,7 +1,7 @@
 {% if days %}
     <ul>
     {% for day in days %}
-        <li><a href="/337/{{ month }}/{{ day }}/">{{ day }}</a></li>
+        <li><a href="{{ day }}/">{{ day }}</a></li>
     {% endfor %}
     </ul>
 {% else %}

@@ -13,7 +13,6 @@ def day(request, month):
     day_links = os.listdir(os.path.join(BASEDIR, month))
     return render(request, 'day.html', {'days': day_links, 'month': month})
 
-
 def download(request, month, day):
     filename = os.path.join(BASEDIR, month, day)
     download_name = day
