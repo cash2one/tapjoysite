@@ -27,5 +27,5 @@ nginx conf for the app
 
 crontab -e
 
-10 9 * * * export VERTICAINI=/usr/local/etc/odbc.ini;source ~datateam/django-tapjoysite/bin/activate;python ~datateam/tapjoysite/ElexTech/report.py >> ~datateam/tapjoysite/ElexTech/report.log 2>&1 ; python ~datateam/tapjoysite/ElexTech/report.py >> ~datateam/tapjoysite/Locojoy/report.log 2>&1 ;deactivate
+10 9 * * * export VERTICAINI=/usr/local/etc/odbc.ini;source ~datateam/django-tapjoysite/bin/activate;python ~datateam/tapjoysite/ElexTech/report.py >> ~datateam/tapjoysite/ElexTech/report.log 2>&1 ; python ~datateam/tapjoysite/Locojoy/report.py >> ~datateam/tapjoysite/Locojoy/report.log 2>&1 ;deactivate
 
