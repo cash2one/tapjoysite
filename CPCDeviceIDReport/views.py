@@ -21,11 +21,13 @@ def query_form(request):
             request.session['adID'] = str(cd['adID'])
             request.session['startDate'] = str(cd['startDate'])
             request.session['endDate'] = str(cd['endDate'])
+            request.session['macFormat'] = str(cd['macFormat'])
             return render_to_response('query_in_progress.html', 
                                       {'queryID':request.session['queryID'], 
                                        'adID': cd['adID'], 
                                        'startDate':cd['startDate'], 
                                        'endDate': cd['endDate'],
+                                       'macFormat': cd['macFormat'],
                                       })
     else:
         form = QueryForm()
@@ -38,7 +40,7 @@ def query(request, queryID):
         raise Http404()
 
 
-    generateReport(request.session['adID'], request.session['startDate'], request.session['endDate'], queryID)
+    generateReport(request.session['adID'], request.session['startDate'], request.session['endDate'], request.session['macFormat'], queryID)
 
     BASEDIR = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'tmp_report')
     filename = os.path.join(BASEDIR, queryID) + '.xls'
