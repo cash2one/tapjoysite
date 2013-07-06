@@ -6,6 +6,7 @@ from pyvertica.connection import get_connection
 
 def AddSheet(wb, sheet, cr, mac_format, orig_row = 0, orig_col = 0):
     rows = cr.fetchall()
+    #print len(rows)
     ws0 = wb.add_sheet(sheet)
 
     row_num = orig_row 
@@ -47,6 +48,7 @@ def generateReport(adID, startDate, endDate, macFormat, queryID = 'tmp'):
                   join analytics.connects_bi b on a.udid = b.udid
                   where b.mac_address != 'NULL' and b.day between date('%s') - interval '15' and '%s'
                   order by 1 asc''' % (adID, startDate, endDate, startDate, endDate)
+        #print sql
         cursor.execute(sql)
         #cursor.execute('''select '12123' as clicktime, 'abc12' as mac_addr''')
         AddSheet(wb, 'mac_addr', cursor, macFormat, 0, 0)
@@ -62,5 +64,5 @@ def generateReport(adID, startDate, endDate, macFormat, queryID = 'tmp'):
 
 
 if __name__ == "__main__":
-    generateReport('7057a1a7-ebce-4369-b729-68e1d212d20e', '2013-5-24', '2013-5-24', '4', 'tmp')
+    generateReport('2bdabb67-0406-435e-871a-dd8fd6ce786e', '2013-6-25', '2013-6-28', '1', 'tmp')
 

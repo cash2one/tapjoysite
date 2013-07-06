@@ -49,8 +49,9 @@ def main():
             AddSheet(wb, setting['name'], cursor, setting['row'], setting['col'])
  
         wb.save(filename)
-    except:
+    except Exception as ex:
         print str(datetime.datetime.now()) + '''  Pull data for "%s" failed''' % setting['name']
+        print Exception, ":", ex
     finally:
         connection.close()
 
