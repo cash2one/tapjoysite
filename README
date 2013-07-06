@@ -16,6 +16,7 @@ nginx conf for the app
                 root   <django root>;
                 uwsgi_pass 127.0.0.1:9091;
                 include        uwsgi_params;
+		uwsgi_read_timeout 1800;
              }
              location /static {         
                 root <django root>; 
