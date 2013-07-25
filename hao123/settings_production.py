@@ -8,4 +8,4 @@ ADMINS = (
             )
 
 MANAGERS = ADMINS
-ALLOWED_HOSTS = ['58.83.146.204']
+ALLOWED_HOSTS = ['www.tapjoy.cn']
