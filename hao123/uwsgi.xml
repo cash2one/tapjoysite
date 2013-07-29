@@ -10,9 +10,9 @@
 <listen>127</listen>
 
 <!-- 开启32个线程 -->
-<processes>10</processes>
+<processes>4</processes>
 
-<max-requests>2048000</max-requests>
+<max-requests>1000</max-requests>
 
 <buffer-size>8192</buffer-size>
 
@@ -31,6 +31,7 @@
 
 <disable-logging/>
 
-<daemonize>uwsgi.log</daemonize>
+<!--daemonize>uwsgi.log</daemonize-->
+<logto>uwsgi.log</logto>
 
 </uwsgi>
