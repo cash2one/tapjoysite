@@ -6,3 +6,4 @@ access_log
 *.log
 *.pot
 local_settings.py
+*/tmp/*
