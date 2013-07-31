@@ -1,0 +1,27 @@
+<html>
+<head>
+    {% load staticfiles %}
+    <title>Change AM and RepSale</title> 
+    <link rel="stylesheet" href="{% static "themes/base/jquery.ui.all.css" %}">
+    <script src="{% static "jquery-2.0.0.min.js" %}" ></script>
+
+</head>
+<body>
+    <h1>Get JS code to change AM and RepSale for partner ids you upload</h1>
+    <p>Please upload a file with partner ids, one id in one line</p>
+    
+    {% if form.errors %}
+         <p style="color: red;">
+             Please correct the error{{ form.errors|pluralize }} below. 
+         </p>
+    {% endif %}
+    <form action="" method="post" enctype="multipart/form-data"> 
+        
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }} 
+        </table>
+        <input type="submit" value="Upload">
+    </form>
+</body>
+</html>

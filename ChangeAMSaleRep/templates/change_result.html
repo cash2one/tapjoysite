@@ -1,0 +1,25 @@
+<html>
+<head>
+    {% load staticfiles %}
+    <title>Resulf of Changing AM and RepSale</title> 
+
+</head>
+<body>
+    {% if IDs %}
+    <h1>Please copy the following code to js console and run it</h1>
+
+    <a href = "https://dashboard.tapjoy.com/dashboard/partners?utf8=%E2%9C%93&agency_user=&q=&managed_by=all&country=CN&commit=Search" target="_blank">Open the js console</a>
+    <p id='contents'> 
+    {% for partner_id in IDs %}
+     
+           $.ajax({type:'put',url:'https://dashboard.tapjoy.com/dashboard/partners/{{ partner_id }}', data:{'partner[account_managers][]':'18192a2d-67f4-46e9-aa3e-04aa9ef96e54', 'partner[sales_rep][]':'dev_cn@tapjoy.com'}}); <br>
+        
+    {% endfor %}
+    </p>
+
+    {% else %}
+    <p>No result are available.</p>
+    {% endif %}
+
+</body>
+</html>

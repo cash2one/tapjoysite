@@ -122,6 +122,7 @@ INSTALLED_APPS = (
     'ElexTech',
     'Locojoy',
     'CPCDeviceIDReport',
+    'ChangeAMSaleRep',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',

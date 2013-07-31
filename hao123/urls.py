@@ -19,6 +19,7 @@ urlpatterns = patterns('',
     url(r'^337/', include('ElexTech.urls')),    
     url(r'^MT/', include('Locojoy.urls', namespace='MT')),
     url(r'^mac_addr/', include('CPCDeviceIDReport.urls')),    
+    url(r'^change_am/', include('ChangeAMSaleRep.urls')),
 )
 
 if settings.DEBUG:
