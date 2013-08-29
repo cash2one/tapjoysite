@@ -29,7 +29,7 @@ def send_mail(subject, content, files = None):
                     ctype = "application/octet-stream"
                 maintype, subtype = ctype.split("/", 1) 
                 attachment = MIMEImage((lambda f: (f.read(), f.close()))(open(filename, "rb"))[0], _subtype = subtype) 
-                attachment.add_header("Content-Disposition", "attachment", filename = filename) 
+                attachment.add_header("Content-Disposition", "attachment", filename = os.path.split(filename)[-1]) 
                 message.attach(attachment) 
 
         smtp = smtplib.SMTP() 
@@ -102,7 +102,7 @@ def main():
      
     subject = day + ' report'
 
-    send_mail(subject, 'This is a daily report by Tapjoy.cn', files)
+    send_mail(subject, 'This is a daily report by Tapjoy.cn\n', files)
 
 
 
