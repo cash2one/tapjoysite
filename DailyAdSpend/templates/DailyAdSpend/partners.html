@@ -1,0 +1,9 @@
+{% if partners %}
+    <ul>
+    {% for partner in partners %}
+        <li><a href="{{ partner }}/">{{ partner }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No reports are available.</p>
+{% endif %}

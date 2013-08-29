@@ -119,6 +119,7 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+    'DailyAdSpend',
     'ElexTech',
     'Locojoy',
     'CPCDeviceIDReport',

@@ -1,0 +1,9 @@
+{% if days %}
+    <ul>
+    {% for day in days %}
+        <li><a href="{{ day }}/">{{ day }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No reports are available.</p>
+{% endif %}

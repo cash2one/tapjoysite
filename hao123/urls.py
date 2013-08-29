@@ -20,6 +20,7 @@ urlpatterns = patterns('',
     url(r'^MT/', include('Locojoy.urls', namespace='MT')),
     url(r'^mac_addr/', include('CPCDeviceIDReport.urls')),    
     url(r'^change_am/', include('ChangeAMSaleRep.urls')),
+    url(r'^adspend/', include('DailyAdSpend.urls')), 
 )
 
 if settings.DEBUG:
