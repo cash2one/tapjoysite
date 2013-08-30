@@ -45,6 +45,8 @@ def send_mail(subject, content, files = None):
 
 def AddSheet(wb, sheet, cr, orig_row = 0, orig_col = 0):
     rows = cr.fetchall()
+    if len(rows) < 1:  # no record
+        return False  
     ws0 = wb.add_sheet(sheet)
 
     row_num = orig_row 
@@ -61,6 +63,8 @@ def AddSheet(wb, sheet, cr, orig_row = 0, orig_col = 0):
             ws0.write(row_num, column_num, cell)
             column_num += 1
         row_num += 1
+
+    return True
 
 def main():
     settings = config.SQL_CONFIG
@@ -86,12 +90,13 @@ def main():
             wb = xlwt.Workbook()
         
             print str(datetime.datetime.now()) + '''  Pull data for "%s" ... ''' % setting['partnername'] 
-            cursor.execute(setting['sql'])
             #print setting['sql']
-            AddSheet(wb, setting['name'], cursor, setting['row'], setting['col'])
- 
-            wb.save(filename)
-            files.append(filename)
+            cursor.execute(setting['sql'])
+            if AddSheet(wb, setting['name'], cursor, setting['row'], setting['col']):
+                wb.save(filename)
+                files.append(filename)
+            else:
+                print str(datetime.datetime.now()) + '''  No record for "%s" ''' % setting['partnername'] 
 
     except Exception as ex:
         print str(datetime.datetime.now()) + '''  Pull data for "%s" failed''' % setting['partnername']
@@ -102,7 +107,7 @@ def main():
      
     subject = day + ' report'
 
-    send_mail(subject, 'This is a daily report by Tapjoy.cn\n', files)
+    send_mail(subject, 'This is a daily report by Tapjoy.cn\n\n', files)
 
 
 
