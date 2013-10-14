@@ -42,7 +42,7 @@ def send_mail(subject, content, mailjobs=None):
                     "Content-Disposition", "attachment", filename=os.path.split(filename)[-1])
                 message.attach(attachment)
 
-                smtp.sendmail(MAIL_FROM, MAIL_LIST, message.as_string())
+                smtp.sendmail(MAIL_FROM, maillist, message.as_string())
 
         smtp.quit()
 
