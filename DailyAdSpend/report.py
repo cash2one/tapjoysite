@@ -21,12 +21,16 @@ MAIL_FROM = 'Penguin' + "<" + 'song.peng' + "@" + 'tapjoy.com.cn' + ">"
 
 def send_mail(subject, content, mailjobs=None):
     try:
-        message = MIMEMultipart()
-        message.attach(MIMEText(content))
-        message["Subject"] = subject
-        message["From"] = MAIL_FROM
+
+        smtp = smtplib.SMTP()
+        smtp.connect()
+
         for (filename, maillist) in mailjobs.items():
             if filename != None and os.path.exists(filename):
+                message = MIMEMultipart()
+                message.attach(MIMEText(content))
+                message["Subject"] = subject
+                message["From"] = MAIL_FROM
                 message["To"] = ";".join(maillist)
                 ctype, encoding = mimetypes.guess_type(filename)
                 if ctype is None or encoding is not None:
@@ -38,9 +42,8 @@ def send_mail(subject, content, mailjobs=None):
                     "Content-Disposition", "attachment", filename=os.path.split(filename)[-1])
                 message.attach(attachment)
 
-        smtp = smtplib.SMTP()
-        smtp.connect()
-        smtp.sendmail(MAIL_FROM, MAIL_LIST, message.as_string())
+                smtp.sendmail(MAIL_FROM, MAIL_LIST, message.as_string())
+
         smtp.quit()
 
         return True
