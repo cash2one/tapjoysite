@@ -33,7 +33,7 @@ def jump_appdrive(request):
 
     sitekey = 'a37c8373f4c87cf782b7618a00c07768'
 
-    redirect_url = 'http://appdriver.cn/6.0.%sac?source=%s&campaign_id=%s&returnFormat=3&idfa=%s&identifier' % (
+    redirect_url = 'http://appdriver.cn/6.0.%sac?source=%s&campaign_id=%s&returnFormat=3&idfa=%s&identifier=%s' % (
         site_id, source, campaign_id, idfa, identifier)
 
     return HttpResponseRedirect(redirect_url)
