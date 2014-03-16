@@ -1,6 +1,6 @@
 from settings import *
 
-DEBUG = False 
+DEBUG = True 
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -8,4 +8,4 @@ ADMINS = (
             )
 
 MANAGERS = ADMINS
-ALLOWED_HOSTS = ['www.tapjoy.cn']
+ALLOWED_HOSTS = ['www.tapjoy.cn', '211.151.191.4']
