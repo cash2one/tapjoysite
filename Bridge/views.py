@@ -1,7 +1,9 @@
 # Create your views here.
 import time
-
+import random
+import urllib2
 import hashlib
+
 
 from django.http import HttpResponseRedirect
 
@@ -21,7 +23,7 @@ def jump_snda(request):
 
 
 def jump_appdrive(request):
-    '''http://211.151.191.4:8765/channel/appdrive?campaign_id=712&idfa=123456781234456756781234567890ab&identifier=12345678-1234-4567-5678-1234567890ab'''
+    '''http://211.151.191.4:8765/channel/appdrive?campaign_id=1102&idfa=TAPJOY_ADVERTISING_ID&identifier=d0a951d6-93f5-45f2-ab46-844b44a9b76f'''
     campaign_id = request.REQUEST.get('campaign_id')
     deviceid = request.REQUEST.get('idfa')
     identifier = request.REQUEST.get('identifier')
@@ -37,3 +39,20 @@ def jump_appdrive(request):
         site_id, source, campaign_id, idfa, identifier)
 
     return HttpResponseRedirect(redirect_url)
+
+
+def postback_appdrive(request):
+    '''http://211.151.191.4:8765/channel/appdrive_postback?app_id=89ed3994-eb99-4c00-9788-8279579e0bez&advertising_id=123456994-eb99-4c00-9788-8279579abcez&library_version=server&sdk_type=connect'''
+    app_id = request.REQUEST.get('app_id')
+    advertising_id = request.REQUEST.get('advertising_id')
+
+    if(random.randint(0, 10) < 9):
+        url = 'https://ws.tapjoyads.com/log_device_app?app_id=%s&advertising_id=%s&library_version=server&sdk_type=connect' % (
+            app_id, advertising_id)
+        res = urllib2.urlopen(url).read()
+
+        print url
+        print res
+
+    json_data = json.dumps({"result": "true"})
+    return HttpResponse(json_data, mimetype="application/json", status=error_code)
