@@ -47,7 +47,7 @@ def postback_appdrive(request):
     app_id = request.REQUEST.get('app_id')
     advertising_id = request.REQUEST.get('advertising_id')
 
-    if(random.randint(0, 10) < 9):
+    if random.randint(0, 10) < 9:
         url = 'https://ws.tapjoyads.com/log_device_app?app_id=%s&advertising_id=%s&library_version=server&sdk_type=connect' % (
             app_id, advertising_id)
         res = urllib2.urlopen(url).read()
