@@ -6,7 +6,7 @@ import urllib2
 import hashlib
 
 
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 
 
 def jump_snda(request):
