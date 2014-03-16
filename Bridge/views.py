@@ -56,4 +56,4 @@ def postback_appdrive(request):
         print res
 
     json_data = json.dumps({"result": "true"})
-    return HttpResponse(json_data, mimetype="application/json", status=error_code)
+    return HttpResponse(json_data, mimetype="application/json", status=200)
