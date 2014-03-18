@@ -7,6 +7,9 @@ import hashlib
 
 
 from django.http import HttpResponseRedirect, HttpResponse
+from Bridge.models import Campaign
+
+from django.shortcuts import get_object_or_404
 
 
 def jump_snda(request):
@@ -47,7 +50,9 @@ def postback_appdrive(request):
     app_id = request.REQUEST.get('app_id')
     advertising_id = request.REQUEST.get('advertising_id')
 
-    if random.randint(0, 10) < 9:
+    campaign = get_object_or_404(Campaign, app_id=app_id)
+
+    if random.randint(1, 10) <= campaign.campaign_level:
         url = 'https://ws.tapjoyads.com/log_device_app?app_id=%s&advertising_id=%s&library_version=server&sdk_type=connect' % (
             app_id, advertising_id)
         res = urllib2.urlopen(url).read()

@@ -4,7 +4,7 @@ from django.conf import settings
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
-# admin.autodiscover()
+admin.autodiscover()
 
 urlpatterns = patterns('',
                        # Examples:
@@ -16,6 +16,7 @@ urlpatterns = patterns('',
 
                        # Uncomment the next line to enable the admin:
                        # url(r'^admin/', include(admin.site.urls)),
+                       url(r'^huadmin/', include(admin.site.urls)),
                        url(r'^337/', include('ElexTech.urls')),
                        url(r'^MT/', include('Locojoy.urls', namespace='MT')),
                        url(r'^mac_addr/', include('CPCDeviceIDReport.urls')),
