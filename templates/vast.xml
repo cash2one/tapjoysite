@@ -1,0 +1,28 @@
+<VAST version="2.0">
+<Ad id="example">
+<InLine>
+<AdSystem>example Ads</AdSystem>
+<AdTitle> <![CDATA[ example ]]> </AdTitle>
+<Creatives>
+<Creative>
+<Linear>
+<Duration>00:00:30</Duration>
+<TrackingEvents>
+<Tracking event="start"> <![CDATA[ http://example.com/t1 ]]> </Tracking>
+<Tracking event="firstQuartile"> <![CDATA[ http://example.com/t2 ]]> </Tracking>
+<Tracking event="Midpoint"> <![CDATA[ http://example.com/t3 ]]> </Tracking>
+<Tracking event="thirdQuartile"> <![CDATA[ http://example.com/t4 ]]> </Tracking>
+<Tracking event="complete"> <![CDATA[ http://example.com/t5 ]]> </Tracking>
+</TrackingEvents>
+<MediaFiles>
+<MediaFile delivery="progressive" width="960" height="640" type="video/mp4">
+<![CDATA[ http://downapp.adwaken.cn/TAPJOY/video.mp4 ]]>
+</MediaFile>
+</MediaFiles>
+</Linear>
+</Creative>
+</Creatives>
+</InLine>
+</Ad>
+</VAST>
+

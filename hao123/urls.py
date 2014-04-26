@@ -22,6 +22,7 @@ urlpatterns = patterns('',
                        url(r'^mac_addr/', include('CPCDeviceIDReport.urls')),
                        url(r'^change_am/', include('ChangeAMSaleRep.urls')),
                        url(r'^adspend/', include('DailyAdSpend.urls')),
+                       url(r'^vast/', include('VastVideo.urls')),
                        url(r'^channel/', include('Bridge.urls')),
                        )
 

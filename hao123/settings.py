@@ -124,7 +124,7 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
-
+    'VastVideo',
     'Bridge',
     'DailyAdSpend',
     'ElexTech',
