@@ -2,7 +2,7 @@ SQL_CONFIG =\
 [\
 
     {'name':'ad spend',\
-     'sql':'''select par.offer_name, app.app_platform, ctr.country_name, count(*), sum(convs.advertiser_amount*-0.01)
+     'sql':'''select par.offer_name, app.app_platform, ctr.country_name, count(1), sum(convs.advertiser_amount*-0.01)
               from analytics.conversions convs  
               join mstr.country_dimension ctr on ctr.country_iso3661_code=convs.country
               join analytics.offers_partners par on convs.advertiser_offer_id=par.offer_id

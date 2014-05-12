@@ -6,6 +6,7 @@ import os
 import sys
 import datetime
 import config
+import pyodbc
 from pyvertica.connection import get_connection
 
 
@@ -78,7 +79,8 @@ def AddSheet(wb, sheet, cr, orig_row=0, orig_col=0):
 
 def main():
     settings = config.SQL_CONFIG
-    connection = get_connection(dsn='VerticaDSN', unicode_results='True')
+    #connection = get_connection(dsn='VerticaDSN', unicode_results='True')
+    connection = pyodbc.connect("DSN=VerticaDSN")
     cursor = connection.cursor()
 
     mailjobs = {}

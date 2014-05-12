@@ -7,6 +7,7 @@ import hashlib
 
 
 from django.http import HttpResponseRedirect, HttpResponse
+from django.template import RequestContext, loader
 from django.shortcuts import render
 from Bridge.models import Campaign
 
@@ -14,7 +15,11 @@ from django.shortcuts import get_object_or_404
 
 
 def vastFile(request):
-    return render(request, 'vast.xml', {'months': ''}, content_type="application/xhtml+xml")
+    t = loader.get_template('vast.xml')
+    c = RequestContext(request, {'foo': 'bar'})
+    res = HttpResponse(t.render(c),   content_type="application/xhtml+xml")
+    res['Access-Control-Allow-Origin'] = '*'
+    return res 
 
 
 def jump_appdrive(request):
