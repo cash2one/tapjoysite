@@ -13,7 +13,7 @@ SQL_CONFIG =\
          'row': 0,
          'col': 0,
          'partnername': 'Elex',
-         'maillist': ['song.peng@tapjoy.com', 'ming.wang@tapjoy.com', 'wendy.mao@tapjoy.com', 'rae.wang@tapjoy.com']
+         'maillist': ['song.peng@tapjoy.com', 'ming.wang@tapjoy.com', 'yameng.zhang@tapjoy.com', 'wendy.mao@tapjoy.com', 'rae.wang@tapjoy.com']
          },
 
         {'name': 'ad spend',
@@ -28,7 +28,7 @@ SQL_CONFIG =\
          'row': 0,
          'col': 0,
          'partnername': 'WOODTALE',
-         'maillist': ["song.peng@tapjoy.com", 'ming.wang@tapjoy.com', 'wendy.mao@tapjoy.com', 'rae.wang@tapjoy.com'],
+         'maillist': ["song.peng@tapjoy.com", 'ming.wang@tapjoy.com', 'yameng.zhang@tapjoy.com', 'wendy.mao@tapjoy.com', 'rae.wang@tapjoy.com'],
          },
 
         {'name': 'ad spend',
@@ -43,7 +43,7 @@ SQL_CONFIG =\
          'row': 0,
          'col': 0,
          'partnername': 'Efun1',
-         'maillist': ['sandy.shen@tapjoy.com', 'ming.wang@tapjoy.com', 'jacky@efun.com', 'zyk0778@efun.com', 'ken.z@efun.com'],
+         'maillist': ['sandy.shen@tapjoy.com', 'ming.wang@tapjoy.com'],
          },
 
         {'name': 'ad spend',
@@ -58,7 +58,7 @@ SQL_CONFIG =\
          'row': 0,
          'col': 0,
          'partnername': 'Efun2',
-         'maillist': ['sandy.shen@tapjoy.com', 'ming.wang@tapjoy.com', 'jacky@efun.com', 'zyk0778@efun.com', 'ken.z@efun.com'],
+         'maillist': ['sandy.shen@tapjoy.com', 'ming.wang@tapjoy.com'],
          },
 
         {'name': 'ad spend',
@@ -73,7 +73,7 @@ SQL_CONFIG =\
          'row': 0,
          'col': 0,
          'partnername': 'Efun3',
-         'maillist': ['sandy.shen@tapjoy.com', 'ming.wang@tapjoy.com', 'jacky@efun.com', 'zyk0778@efun.com', 'ken.z@efun.com'],
+         'maillist': ['sandy.shen@tapjoy.com', 'ming.wang@tapjoy.com'],
          },
 
     ]

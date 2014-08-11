@@ -25,6 +25,20 @@ def jump_snda(request):
 
     sign = hashlib.new("md5", before_sign).hexdigest()
 
+def jump_adwo(request):
+
+    a = request.REQUEST.get('idfa')
+    idfa = '-'.join([a[:8],a[8:12],a[12:16],a[16:20], a[20:]]).upper()
+    advid = request.REQUEST.get('advid')
+    pid = request.REQUEST.get('pid')
+    redirect_url = request.REQUEST.get('redirecturl')
+
+    url = 'http://offer.adwo.com/iofferwallcharge/clk?advid=%s&pid=%s&idfa=%s' % (
+        advid, pid, idfa)
+    print url
+    print redirect_url
+    res = urllib2.urlopen(url).read()
+    return HttpResponseRedirect(redirect_url)
 
 def jump_appdrive(request):
     '''http://211.151.191.4:8765/channel/appdrive?campaign_id=1102&idfa=TAPJOY_ADVERTISING_ID&identifier=d0a951d6-93f5-45f2-ab46-844b44a9b76f'''
