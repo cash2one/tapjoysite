@@ -31,10 +31,11 @@ def jump_adwo(request):
     idfa = '-'.join([a[:8],a[8:12],a[12:16],a[16:20], a[20:]]).upper()
     advid = request.REQUEST.get('advid')
     pid = request.REQUEST.get('pid')
+    keywords = request.REQUEST.get('keywords')
     redirect_url = request.REQUEST.get('redirecturl')
 
-    url = 'http://offer.adwo.com/iofferwallcharge/clk?advid=%s&pid=%s&idfa=%s' % (
-        advid, pid, idfa)
+    url = 'http://offer.adwo.com/iofferwallcharge/clk?advid=%s&pid=%s&idfa=%s&keywords=%s' % (
+        advid, pid, idfa, keywords)
     print url
     print redirect_url
     res = urllib2.urlopen(url).read()
