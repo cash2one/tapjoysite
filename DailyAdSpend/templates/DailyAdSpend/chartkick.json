@@ -1,0 +1,11 @@
+[
+    {
+        "id": "total",
+        "title": "Total Spend",
+        "titlePosition": "in",
+        "vAxis": {
+            "title": "Ad Spend ($)"
+        }
+    },
+
+]

@@ -1,6 +1,7 @@
 # Django settings for hao123 project.
 
 import os
+import chartkick
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -79,6 +80,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    chartkick.js(),
 )
 
 # List of finder classes that know how to find static files in
@@ -139,7 +141,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
-    'south'
+    'south',
+    'chartkick',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     #'ElexTech',
