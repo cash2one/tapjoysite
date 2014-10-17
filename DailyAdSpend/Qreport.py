@@ -139,7 +139,7 @@ def addSheetAmount(wb, spend_data):
             ws0.write(row, col, dat[sum].get(i-1, 0)) 
             col += 1
    
-        
+    return ('%.2f%%' % (dat[sum]['QtD']/ dat[sum]['QKPI'] * 100), dat[sum]['QtD'], dat[sum].get(len(days)-1, 0))    
 
  
 
@@ -213,7 +213,7 @@ def main():
 #       #print json.dumps(spend_data, indent=4)
         json.dump(spend_data, open(jsonfile, 'w'))
 
-        addSheetAmount(wb, spend_data);
+        percent, q2d, dspend= addSheetAmount(wb, spend_data);
             #if AddSheet(wb, period, cursor, sqlset['row'], sqlset['col']):
 
         wb.save(filename)
@@ -225,7 +225,7 @@ def main():
     finally:
         connection.close()
 
-    subject = 'TeamChina ' + settings['quarter'] + ' QtD adspend report'
+    subject = 'CN ' + settings['quarter'] + ' (Total:' + str(q2d) + ') (Ratio:' + percent + ') (Yesterday:' + str(dspend) + ')' 
 
     send_mail(subject, 'Please find the visualized version at http://www.tapjoy.cn:8765/adspend/china/. \n\n\n This is a daily report by Tapjoy.cn\n\n', mailjobs)
 

@@ -1,7 +1,7 @@
 SQL_CONFIG =\
    { 
 
-        'quarter':'2014Q3',
+        'quarter':'2014Q4',
         'days': 92,
         'offset': 1, 
         'sql': '''select date(convs.created_at), off_par.sales_rep_email as SR, par_mgr.acct_mgr as AM, sum(convs.advertiser_amount*-0.01)
@@ -21,6 +21,7 @@ SQL_CONFIG =\
 		 group by 1, 2, 3 
 		 order by 4 desc''',
 
+         #'maillist':['song.peng@tapjoy.com'],
          'maillist': ['david.chun@tapjoy.com', 
 		'adams.ma@tapjoy.com', 
 		'xiaosi.gao@tapjoy.com', 
@@ -44,8 +45,11 @@ SQL_CONFIG =\
 		'ming.wang@tapjoy.com-yameng.zhang@tapjoy.com':'Mingming',
 		'david.chun@tapjoy.com-ming.wang@tapjoy.com':'Mingming',
 		'david.chun@tapjoy.com-zhihui.cai@tapjoy.com':'Zhihui',
+                'david.chun@tapjoy.com-wang.rui@tapjoy.com':'Rae',
+                'wang.rui@tapjoy.com-supallav.baksi-lahiri@tapjoy.com':'Rae',
 		'zhihui.cai@tapjoy.com-zhihui.cai@tapjoy.com':'Zhihui',
 		'zhihui.cai@tapjoy.com-heping.yu@tapjoy.com':'Zhihui',
+                'zhihui.cai@tapjoy.com-wendy.mao@tapjoy.com':'Zhihui',
 		'tyler.zhang@tapjoy.com-tyler.zhang@tapjoy.com':'Tyler',
 		'xiaosi.gao@tapjoy.com-tyler.zhang@tapjoy.com':'Tyler', 
 		'tyler.zhang@tapjoy.com-sandy.shen@tapjoy.com':'Tyler', 
@@ -71,6 +75,7 @@ SQL_CONFIG =\
 		'rae.wang.dev@tapjoy.com-wendy.mao@tapjoy.com':'Wendy',
 		'rae.wang.dev@tapjoy.com-wang.rui@tapjoy.com':'Rae',
 		'rae.wang.dev@tapjoy.com-wang.rui@tapjoy.com':'Rae',
+                'heping.yu@tapjoy.com-wendy.mao@tapjoy.com':'Wendy',
          },
          'kpi':
          {
@@ -78,9 +83,9 @@ SQL_CONFIG =\
 		'Zhihui':2590000,
 		'Tyler':580000,
 		'xiaosi':520000,
-		'Adams':547000,
-		'Huabing':563000,
-		'Max':90000,
+		'Adams':700000,
+		'Huabing':400000,
+		'Max':100000,
 		'Rae':290000,
 		'Wendy':370000,
 		'Sandy':310000,

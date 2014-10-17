@@ -112,6 +112,8 @@ def chart(request):
 
 	daysum = 0
 	for i in xrange(0, len(days)):
+            if i not in dat[owner]:  # account change, some accounts change to 0
+                dat[owner][i] = 0
 	    paceactual[dates[i]] = dat[owner][i]
 	    daysum += dat[owner][i]
 	    dayactual[dates[i]] = daysum ;

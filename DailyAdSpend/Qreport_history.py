@@ -22,14 +22,17 @@ def main():
     mailjobs = {}
     day = ''
     partner = 'China'
+    alldays = 84
     try:
+
         cursor.execute(
-            'select year(CURRENT_DATE - 66), month(CURRENT_DATE - 66), day(CURRENT_DATE - 66 )')
+            'select year(CURRENT_DATE - %d), month(CURRENT_DATE - %d), day(CURRENT_DATE - %d )' % (alldays, alldays, alldays))
         rows = cursor.fetchall()
         month = '{0:4d}{1:02d}'.format(rows[0].year, rows[0].month)
         day = '{0:4d}{1:02d}{2:02d}'.format(
             rows[0].year, rows[0].month, rows[0].day)
         print day
+        
 
         BASEDIR = os.path.join(os.path.realpath(sys.path[0]), 'Qreport')
         folder = os.path.join(BASEDIR, partner, month)
@@ -62,7 +65,7 @@ def main():
                  group by 1, 2, 3
                  order by 4 desc'''
         
-        for i in xrange(66, 1, -1):
+        for i in xrange(alldays, 1, -1):
             print i
             cursor.execute(sqltmp % i)
             rows = cursor.fetchall()

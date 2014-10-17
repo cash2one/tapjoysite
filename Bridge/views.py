@@ -36,10 +36,21 @@ def jump_adwo(request):
 
     url = 'http://offer.adwo.com/iofferwallcharge/clk?advid=%s&pid=%s&idfa=%s&keywords=%s' % (
         advid, pid, idfa, keywords)
+    res = urllib2.urlopen(url).read()
+    return HttpResponseRedirect(redirect_url)
+
+def jump_dianxin(request):
+    '''www.tapjoy.cn:8765/channel/dianxin?idfa=TAPJOY_HASHED_ADVERTISING_ID&redirecturl='''
+    idfa = request.REQUEST.get('idfa')
+    ituneid = request.REQUEST.get('ituneid')
+    redirect_url = request.REQUEST.get('redirecturl')
+
+    url = 'http://qb.dianxin.net/iguard/promoted/notify/?adalias=speedkit&source=tapjoy&idfa=%s&appid=%s' % (idfa, ituneid)
     print url
     print redirect_url
     res = urllib2.urlopen(url).read()
     return HttpResponseRedirect(redirect_url)
+
 
 def jump_appdrive(request):
     '''http://211.151.191.4:8765/channel/appdrive?campaign_id=1102&idfa=TAPJOY_ADVERTISING_ID&identifier=d0a951d6-93f5-45f2-ab46-844b44a9b76f'''
