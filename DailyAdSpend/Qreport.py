@@ -71,7 +71,9 @@ def addSheetAmount(wb, spend_data):
     for i in xrange(0, len(days)):
         daydata = spend_data[days[i]]
         for key, value in daydata.items():
-            owner = settings['owner'][key]
+            owner = 'Rae'
+            if key in settings['owner']:
+                owner = settings['owner'][key]
             dat[owner]['QtD'] += value;
             dat[owner][i] = value + dat[owner].get(i,0);
     row = 0

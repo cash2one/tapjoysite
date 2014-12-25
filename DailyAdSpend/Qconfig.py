@@ -39,7 +39,8 @@ SQL_CONFIG =\
 		'yameng.zhang@tapjoy.com',
 		'heping.yu@tapjoy.com',
 		'song.peng@tapjoy.com',
-		'li.zhe@tapjoy.com', ],
+		'li.zhe@tapjoy.com', 
+                'victoria.jiang@tapjoy.com','shawn.cheng@tapjoy.com',],
          'owner': 
          {
 		'ming.wang@tapjoy.com-yameng.zhang@tapjoy.com':'Mingming',
@@ -66,6 +67,7 @@ SQL_CONFIG =\
 		'wang.rui@tapjoy.com-sandy.shen@tapjoy.com':'Sandy',
 		'xiaosi.gao@tapjoy.com-sandy.shen@tapjoy.com':'Sandy',
 		'heping.yu@tapjoy.com-heping.yu@tapjoy.com':'Heping',
+                'heping.yu@tapjoy.com-wang.rui@tapjoy.com':'Heping',
                 'adams.ma@tapjoy.com-hetty.yu@tapjoy.com':'Heping',
 		'wang.rui@tapjoy.com-heping.yu@tapjoy.com':'Heping',
 		'yameng.zhang@tapjoy.com-yameng.zhang@tapjoy.com':'Yameng',
@@ -76,6 +78,7 @@ SQL_CONFIG =\
 		'rae.wang.dev@tapjoy.com-wang.rui@tapjoy.com':'Rae',
 		'rae.wang.dev@tapjoy.com-wang.rui@tapjoy.com':'Rae',
                 'heping.yu@tapjoy.com-wendy.mao@tapjoy.com':'Wendy',
+                'wang.rui@tapjoy.com-rae.wang@tapjoy.com':'Rae',
          },
          'kpi':
          {
@@ -91,7 +94,7 @@ SQL_CONFIG =\
 		'Sandy':310000,
 		'Heping':247000,
 		'Yameng':74000,
-                'Internal': 0
+                'Internal': 369000, 
          }
 
 

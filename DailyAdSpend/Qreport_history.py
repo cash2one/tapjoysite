@@ -22,7 +22,7 @@ def main():
     mailjobs = {}
     day = ''
     partner = 'China'
-    alldays = 84
+    alldays = 65 
     try:
 
         cursor.execute(
@@ -32,6 +32,7 @@ def main():
         day = '{0:4d}{1:02d}{2:02d}'.format(
             rows[0].year, rows[0].month, rows[0].day)
         print day
+    #    return
         
 
         BASEDIR = os.path.join(os.path.realpath(sys.path[0]), 'Qreport')
@@ -56,12 +57,12 @@ def main():
                       (par_mgr.acct_mgr in
                         ('adams.ma@tapjoy.com','heping.yu@tapjoy.com','huabing.zhu@tapjoy.com','max.wang@tapjoy.com',
                          'ming.wang@tapjoy.com','sandy.shen@tapjoy.com','tyler.zhang@tapjoy.com','wang.rui@tapjoy.com','wendy.mao@tapjoy.com',
-                         'xiaosi.gao@tapjoy.com','yameng.zhang@tapjoy.com','zhihui.cai@tapjoy.com') 
+                         'xiaosi.gao@tapjoy.com','yameng.zhang@tapjoy.com','zhihui.cai@tapjoy.com','victoria.jiang@tapjoy.com') 
                      or 
                       off_par.sales_rep_email in
                         ('adams.ma.dev@tapjoy.com','adams.ma@tapjoy.com','david.chun@tapjoy.com','heping.yu@tapjoy.com','ming.wang@tapjoy.com',
                          'rae.wang.dev@tapjoy.com','sandy.shen@tapjoy.com','tyler.zhang@tapjoy.com','wang.rui@tapjoy.com','wendy.mao@tapjoy.com',
-                         'xiaosi.gao@tapjoy.com','yameng.zhang@tapjoy.com','zhihui.cai@tapjoy.com'))
+                         'xiaosi.gao@tapjoy.com','yameng.zhang@tapjoy.com','zhihui.cai@tapjoy.com','victoria.jiang@tapjoy.com'))
                  group by 1, 2, 3
                  order by 4 desc'''
         
